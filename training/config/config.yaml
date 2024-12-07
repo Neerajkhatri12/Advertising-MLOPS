@@ -1,7 +1,8 @@
+
 artifacts_root: artifacts
 
 data ingestion:
-  root_dir: artifacts/data_ingestion
+  root dir: artifacts/data_ingestion
   source: data/advertising_data.csv
   data_dir: artifacts/data_ingestion
   STATUS_FILE: artifacts/data_ingestion/status.txt
@@ -11,18 +12,23 @@ data validation:
   data_dir: artifacts/data_ingestion/fabric_data
   STATUS_FILE: artifacts/data_validation/status.txt  # status of data validation 
 
+
+
+
+
+
 # Will make changes
 cross_val:
   root_dir: artifacts/cross_val
   extracted_features:  artifacts/feature_extraction
-  random_search_models_rf: artifacts cross_val/random_search_models/random_forest
+  random_search_models_rf: artifacts/cross_val/random_search_models/random_forest
   model_cache_rf: artifacts/cross_val/model_cache_rf
   #random_search_models_svm: artifacts/cross_val/random_search_models/svm - If required use
   #model_cache_svm: artifacts/cross_val/model_cache_svm
   train_data_path: artifacts/cross_val/data_for_final_train
   test_data_path: artifacts/cross_val/data_for_final_train
   model_name: model.joblib
-  metric_file_name_rf: artifacts/nested_cross_val/random_search_models/random_forest/metrics
+  metric_file_name_rf: artifacts/cross_val/random_search_models/random_forest/metrics
   best_model_params_rf: artifacts/cross_val/random_search_models/random_forest/best_model_params
   STATUS_FILE: artifacts/cross_val/status.txt
 
@@ -31,6 +37,7 @@ cross_val:
   train_data_path: artifacts/cross_val/data_for_final_train
   test_data_path: artifacts/cross_val/data_for_final_train
   STATUS_FILE: artifacts/feature_engineering/status.txt
+
 
 #Changes will need to be done for model_trainer and model_evaluation as we are doing a nested cross validation
 model_trainer:
