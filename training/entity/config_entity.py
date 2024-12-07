@@ -15,10 +15,6 @@ class DataValidationConfig:
     data_dir: Path
     STATUS_FILE: str
 
-@dataclass(frozen=True)
-
-
-
 
 
 #5
@@ -30,7 +26,6 @@ class FeatureEngineeringConfig:
     STATUS_FILE: str
 
 @dataclass(frozen=True)
-
 class CrossValConfig:
     root_dir: Path
     extracted_features: Path
@@ -44,10 +39,8 @@ class CrossValConfig:
     metric_file_name_rf: Path
     best_model_params_rf: Path
 
-
 #6
 # Changes will be made as per the model is configured
-
 @dataclass(frozen=True)
 class ModelTrainerConfig:
     root_dir: Path
@@ -74,17 +67,3 @@ class ModelEvaluationConfig:
     #mlflow_uri: str
     STATUS_FILE: str
 
-
-@dataclass(frozen=True)
-class NestedCrossValConfig:
-    root_dir: Path
-    extracted_features: Path
-    random_search_models_rf: Path
-    model_cache_rf: Path
-    #random_search_models_svm: Path
-    train_data_path: Path
-    test_data_path: Path
-    model_name: str
-    STATUS_FILE: str
-    metric_file_name_rf: Path
-    best_model_params_rf: Path

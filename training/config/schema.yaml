@@ -1,0 +1,4 @@
+# Not required in this project for the time being.
+COLUMNS:
+  colls: str
+  
