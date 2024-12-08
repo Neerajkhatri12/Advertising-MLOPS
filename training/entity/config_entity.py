@@ -13,6 +13,7 @@ class DataIngestionConfig:
 class DataValidationConfig:
     root_dir: Path
     data_dir: Path
+    all_schema: dict
     STATUS_FILE: str
 
 
