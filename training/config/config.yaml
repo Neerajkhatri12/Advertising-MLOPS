@@ -32,12 +32,12 @@ feature_engineering:
 #Changes will need to be done for model_trainer and model_evaluation as we are doing a nested cross validation
 model_trainer:
   root_dir: artifacts/model_trainer
-  train_data_path: artifacts/feature_engineering
-  test_data_path: artifacts/feature_engineering
-  #best_cross_val_models_rf:  artifacts/cross_val/random_search_models/random_forest
-  final_model_name: artifacts/model_trainer/final_model.joblib
-  metric_file_name_rf: artifacts/cross_val/random_search_models/random_forest/metrics
-  best_model_params_rf: artifacts/cross_val/random_search_models/random_forest/best_model_params
+  final_train_data_path: artifacts/feature_engineering
+  final_test_data_path: artifacts/feature_engineering
+  
+  
+  
+  best_model_params:  artifacts/cross_val/best_model_params
   STATUS_FILE: artifacts/model_trainer/status.txt
 
 model_evaluation:
