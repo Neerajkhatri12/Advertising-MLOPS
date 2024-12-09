@@ -2,7 +2,6 @@ from training.constants import *
 from training.utils.common import read_yaml, create_directories
 from training.entity.config_entity import DataIngestionConfig
 from training.entity.config_entity import DataValidationConfig
-
 from training.entity.config_entity import FeatureEngineeringConfig
 from training.entity.config_entity import ModelTrainerConfig
 from training.entity.config_entity import ModelEvaluationConfig
@@ -44,16 +43,13 @@ class ConfigurationManager:
         data_validation_config = DataValidationConfig(
             root_dir= config.root_dir,
             data_dir= config.data_dir,
-            all_schema= schema,
+            all_schema = schema,
             STATUS_FILE= config.STATUS_FILE
         )
 
         return data_validation_config
-   
-   
-  
-    
-#3   
+ 
+#5    
     def get_feature_engineering_config(self) -> FeatureEngineeringConfig:
         config = self.config.feature_engineering
         create_directories([config.root_dir])
@@ -66,7 +62,29 @@ class ConfigurationManager:
         )
 
         return feature_engineering_config
-#4
+    
+#8
+    def get_cross_val_config(self) -> CrossValConfig:
+        config = self.config.cross_val
+        create_directories([config.root_dir])
+        create_directories([config.final_train_data_path, config.final_test_data_path])
+        create_directories([ config.best_model_params])
+
+        cross_val_config = CrossValConfig(
+            root_dir = config.root_dir,
+            data_dir= config.data_dir,
+            final_train_data_path = config.final_train_data_path,
+            final_test_data_path= config.final_test_data_path,
+            best_model_params= config.best_model_params,
+            STATUS_FILE= config.STATUS_FILE
+        )
+
+        return cross_val_config
+    
+
+
+
+#6
     def get_model_trainer_config(self) -> ModelTrainerConfig :        
         config = self.config.model_trainer
 
@@ -83,30 +101,8 @@ class ConfigurationManager:
         )
 
         return model_trainer_config
-    def cross_val_config(self) -> CrossValConfig:
-        config = self.config.cross_val
-        create_directories([config.root_dir])
-        create_directories([config.extracted_features, config.random_search_models_rf, config.model_cache_rf])
-        create_directories([config.train_data_path, config.test_data_path])
-        create_directories([config.metric_file_name_rf, config.best_model_params_rf])
-
-        cross_val_config = CrossValConfig(
-            root_dir = config.root_dir,
-            extracted_features= config.extracted_features,
-            random_search_models_rf= config.random_search_models_rf,
-            model_cache_rf= config.model_cache_rf,
-            train_data_path = config.train_data_path,
-            test_data_path= config.test_data_path,
-            model_name = config.model_name,
-            STATUS_FILE= config.STATUS_FILE,
-            metric_file_name_rf= config.metric_file_name_rf,
-            best_model_params_rf= config.best_model_params_rf
-        )
-
-        return cross_val_config
     
-    
-#5
+#7
     def get_model_evaluation_config(self) -> ModelEvaluationConfig:
 
         config = self.config.model_evaluation
@@ -128,7 +124,8 @@ class ConfigurationManager:
 
         return model_evaluation_config
     
+    
 
-#8
+
    
     

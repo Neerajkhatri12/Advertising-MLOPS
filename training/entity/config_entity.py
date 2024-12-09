@@ -16,9 +16,7 @@ class DataValidationConfig:
     all_schema: dict
     STATUS_FILE: str
 
-
-
-#5
+#3
 @dataclass(frozen=True)
 class FeatureEngineeringConfig:
     root_dir: Path
@@ -26,21 +24,19 @@ class FeatureEngineeringConfig:
     test_data_path: Path
     STATUS_FILE: str
 
+#4
 @dataclass(frozen=True)
 class CrossValConfig:
     root_dir: Path
-    extracted_features: Path
-    random_search_models_rf: Path
-    model_cache_rf: Path
-    #random_search_models_svm: Path
-    train_data_path: Path
-    test_data_path: Path
-    model_name: str
+    data_dir: Path
+    final_train_data_path: Path
+    final_test_data_path: Path
+    best_model_params: Path
     STATUS_FILE: str
-    metric_file_name_rf: Path
-    best_model_params_rf: Path
 
-#6
+
+
+#5
 # Changes will be made as per the model is configured
 @dataclass(frozen=True)
 class ModelTrainerConfig:
@@ -56,7 +52,9 @@ class ModelTrainerConfig:
     #alpha: float
     #l1_ratio: float
     #target_column: str
-#7
+
+    
+#6
 @dataclass(frozen=True)
 class ModelEvaluationConfig:
     root_dir: Path
@@ -67,4 +65,3 @@ class ModelEvaluationConfig:
     #target_column: str
     #mlflow_uri: str
     STATUS_FILE: str
-
