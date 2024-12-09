@@ -56,8 +56,8 @@ class ConfigurationManager:
 
         feature_engineering_config = FeatureEngineeringConfig(
             root_dir = config.root_dir,
-            train_data_path=config.train_data_path,
-            test_data_path= config.test_data_path,
+            final_train_data_path=config.final_train_data_path,
+            final_test_data_path= config.final_test_data_path,
             STATUS_FILE=config.STATUS_FILE
         )
 

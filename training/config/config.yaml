@@ -24,8 +24,8 @@ cross_val:
 
 feature_engineering:
   root_dir: artifacts/feature_engineering
-  train_data_path: artifacts/cross_val/data_for_final_train
-  test_data_path: artifacts/cross_val/data_for_final_train
+  final_train_data_path: artifacts/cross_val/data_for_final_train
+  final_test_data_path: artifacts/cross_val/data_for_final_train
   STATUS_FILE: artifacts/feature_engineering/status.txt
 
 
