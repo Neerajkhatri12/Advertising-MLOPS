@@ -1,0 +1,2 @@
+Model Evaluation status: True 
+RMSE: 3.8026841777135263 and R2: 0.5418643684883695

@@ -1,0 +1,2 @@
+Best params for Model: {'regressor__fit_intercept': True}
+Best scoring(R2) for Model: 0.851553876153271
